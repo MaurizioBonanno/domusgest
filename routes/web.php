@@ -16,7 +16,24 @@ use Symfony\Component\Console\Input\Input;
 use App\Models\Photo;
 
 Route::get('/', function () {
-    return view('welcome');
+    $sql ="SELECT i.id,titolo,descrizione,photo,id_tipologia,id_operazione,sorter,prezzo,mq,
+    camere,bagni,vani,indirizzo,provincia,tipologia,operazione  from immobili as i INNER JOIN tipologie
+     as t ON i.id_tipologia = t.id INNER JOIN operazioni as o ON i.id_operazione = o.id order by i.sorter desc";
+
+     $res = DB::select($sql);
+
+    return view('welcome',['immobili'=>$res]);
+});
+
+Route::get('/immobile/{id}/{descrizione}',function($id){
+    $sql ="SELECT i.id,titolo,descrizione,photo,id_tipologia,id_operazione,sorter,prezzo,mq,
+    camere,bagni,vani,indirizzo,provincia,prezzo,tipologia,operazione,certificazione  from immobili as i INNER JOIN tipologie
+     as t ON i.id_tipologia = t.id INNER JOIN operazioni as o ON i.id_operazione = o.id where i.id=".$id;
+
+     $res = DB::select($sql);
+     $sqlPhoto = "select * from photo_immobili where id_immobile=".$id." order by sorter";
+     $photo= DB::select($sqlPhoto);
+     return view('immobile',['immobile'=>$res[0],'photo'=>$photo]);
 });
 
 Auth::routes();
@@ -32,6 +49,27 @@ Route::get('/reorder_gallery', function(Request $request){
     }
     return  $message;
     //dd($request->input('id'));
+});
+
+Route::get('/vendita', function(){
+    return view('vendita');
+});
+
+
+Route::get('/fissaappuntamento', function (Request $request) {
+
+    $miamail = 'mbonanno@remax.it';
+    $nome = $request->input('nome');
+    $email = $request->input('email');
+    $telefono = $request->input('telefono');
+    $messaggio = $request->input('messaggio');
+
+    $bodymsg = $nome." , ".$email." , ".$telefono." , ".$messaggio.".";
+    $headers = 'From:'.$miamail."\r\n"."Reply-To: ".$miamail;
+    mail($miamail,"Messaggio dal sito",$bodymsg,$headers);
+
+    return true;
+
 });
 
 Route::delete('/delete_photo/{id}','HomeController@deletePhoto')->middleware('auth');

@@ -225,6 +225,14 @@
                     <div class="carousel-item active">
                         <img src="{{asset('storage/'.$immobile->photo)}}" class="d-block w-100">
                     </div>
+
+                    <!-- tutte le foto -->
+                    @foreach ($photo as $img)
+                    <div class="carousel-item ">
+                        <img src="{{asset('storage/'.$img->path)}}" class="d-block w-100">
+                    </div>
+                    @endforeach
+
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -253,6 +261,8 @@
                                     <p><i class="fas fa-shower"></i><b>Bagni</b>:{{ $immobile->bagni }}</p>
                                     <p><h4>€ {{$immobile->prezzo}}</h4></p>
                                     <p>Certificazione energetica: {{ $immobile->certificazione }} </p>
+
+
 
                                    @auth
                                        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>

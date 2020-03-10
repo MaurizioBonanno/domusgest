@@ -80,12 +80,11 @@
     <body>
 
 
-
-
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="/">
                 <img src="images/mauriziobonannofoto.png" style="height: 4em;width:auto">
                 Maurizio Bonanno
+
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -105,7 +104,7 @@
                 </li>
 
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Vendi Casa</a>
+                    <a class="nav-link" href="/vendita">Vendi Casa</a>
                 </li>
 
                 <li class="nav-item active">
@@ -115,13 +114,19 @@
 
               <ul  class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <button class="btn btn-small btn-outline-dark">
-                        <i class="fas fa-phone-alt"></i>  3205504321
-                    </button>
+                    <a href="tel:+39 320.55.043.21" class="btn btn-small btn-outline-dark" role="button">
+                        <i class="fas fa-phone-alt"></i>+39 3205504321
+                      </a>
+                      <a href="tel:+39 388.37.474.74 " class="btn btn-small btn-outline-dark" role="button">
+                        <i class="fas fa-phone-alt"></i> +39 3883747474
+                      </a>
                 </li>
               </ul>
 
               <ul  class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <img src="images/remax.png" height="17">
+                  </li>
                 @if (Route::has('login'))
 
                         @auth
@@ -171,6 +176,7 @@
                                   <!-- Right Side Of Navbar -->
                                   <ul class="navbar-nav ml-auto">
                                     <!-- Authentication Links -->
+
                                     @guest
                                         <li class="nav-item">
                                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>

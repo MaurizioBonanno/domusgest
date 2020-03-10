@@ -29,6 +29,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+
         return view('home');
     }
 
@@ -195,8 +196,9 @@ class HomeController extends Controller
          as t ON i.id_tipologia = t.id INNER JOIN operazioni as o ON i.id_operazione = o.id where i.id=".$id;
 
          $res = DB::select($sql);
-
-         return view('dettaglio',['immobile'=>$res[0]]);
+         $sqlPhoto = "select * from photo_immobili where id_immobile=".$id." order by sorter";
+        $photo= DB::select($sqlPhoto);
+         return view('dettaglio',['immobile'=>$res[0],'photo'=>$photo]);
     }
 
     public function addFoto($id){
@@ -241,4 +243,5 @@ class HomeController extends Controller
         $tipologie = Tipologia::all();
         return view('edit_immobile',['immobile'=>$immobile,'tipologie'=>$tipologie,'operazioni'=>$operazioni]);
     }
+
 }
