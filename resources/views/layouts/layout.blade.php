@@ -96,7 +96,7 @@
                   <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                  <a class="nav-link" href="#">Immobili</a>
+                  <a class="nav-link" href="/listino">Immobili</a>
                 </li>
 
                 <li class="nav-item active">
@@ -220,5 +220,6 @@
 
 
         </div>
+        @include('layouts.footer')
     </body>
 </html>

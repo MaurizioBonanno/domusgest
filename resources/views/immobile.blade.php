@@ -110,7 +110,7 @@
                 </li>
 
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Vendi Casa</a>
+                    <a class="nav-link" href="/vendita">Vendi Casa</a>
                 </li>
 
                 <li class="nav-item active">
@@ -283,7 +283,7 @@
 
         </div>
 
-
+@include('layouts.footer')
 
     </body>
 </html>

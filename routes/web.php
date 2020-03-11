@@ -72,6 +72,16 @@ Route::get('/fissaappuntamento', function (Request $request) {
 
 });
 
+Route::get('/listino', function(){
+    $sql ="SELECT i.id,titolo,descrizione,photo,id_tipologia,id_operazione,sorter,prezzo,mq,
+    camere,bagni,vani,indirizzo,provincia,tipologia,operazione  from immobili as i INNER JOIN tipologie
+     as t ON i.id_tipologia = t.id INNER JOIN operazioni as o ON i.id_operazione = o.id order by i.sorter desc";
+
+     $res = DB::select($sql);
+
+    return view('listino',['immobili'=>$res]);
+});
+
 Route::delete('/delete_photo/{id}','HomeController@deletePhoto')->middleware('auth');
 
 Route::get('/home', 'HomeController@index')->name('home');
