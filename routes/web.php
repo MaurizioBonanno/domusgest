@@ -11,6 +11,7 @@
 |
 */
 
+use App\Models\Immobili;
 use Illuminate\Http\Request;
 use Symfony\Component\Console\Input\Input;
 use App\Models\Photo;
@@ -18,7 +19,7 @@ use App\Models\Photo;
 Route::get('/', function () {
     $sql ="SELECT i.id,titolo,descrizione,photo,id_tipologia,id_operazione,sorter,prezzo,mq,
     camere,bagni,vani,indirizzo,provincia,tipologia,operazione  from immobili as i INNER JOIN tipologie
-     as t ON i.id_tipologia = t.id INNER JOIN operazioni as o ON i.id_operazione = o.id order by i.sorter desc";
+     as t ON i.id_tipologia = t.id INNER JOIN operazioni as o ON i.id_operazione = o.id order by i.sorter asc";
 
      $res = DB::select($sql);
 
@@ -51,6 +52,21 @@ Route::get('/reorder_gallery', function(Request $request){
     //dd($request->input('id'));
 });
 
+
+Route::get('/reorder_immobili', function(Request $request){
+
+    $message = "";
+    foreach($request->input('id') as $position=>$id){
+       $message.=" elemento id:".$id." posizione".$position;
+       $immobile = Immobili::find($id);
+       $immobile->sorter = $position;
+       $immobile->save();
+    }
+    return  $message;
+    //dd($request->input('id'));
+});
+
+
 Route::get('/vendita', function(){
     return view('vendita');
 });
@@ -80,6 +96,14 @@ Route::get('/listino', function(){
      $res = DB::select($sql);
 
     return view('listino',['immobili'=>$res]);
+});
+
+Route::get('/ricerca', function(){
+    return view('ricerca');
+});
+
+Route::get('/contatto', function(){
+    return view('contatto');
 });
 
 Route::delete('/delete_photo/{id}','HomeController@deletePhoto')->middleware('auth');
@@ -112,7 +136,7 @@ Route::patch('/updateimmobile/{id}','HomeController@updateimmobile')->middleware
 
 Route::get('/immobili','HomeController@immobili')->name('immobili')->middleware('auth');
 
-Route::get('/immobile/{id}/add_foto', 'HomeController@addFoto')->middleware('auth');
+Route::get('/listino/{id}/add_foto', 'HomeController@addFoto')->middleware('auth');
 
 Route::patch('/save_photo/{id}', 'HomeController@saveFoto')->middleware('auth');
 

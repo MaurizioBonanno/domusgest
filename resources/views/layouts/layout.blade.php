@@ -100,7 +100,7 @@
                 </li>
 
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Property Finder</a>
+                    <a class="nav-link" href="/ricerca">Property Finder</a>
                 </li>
 
                 <li class="nav-item active">
@@ -108,7 +108,7 @@
                 </li>
 
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Contattami</a>
+                    <a class="nav-link" href="/contatto">Contattami</a>
                 </li>
               </ul>
 

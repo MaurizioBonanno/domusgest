@@ -16,7 +16,7 @@
              <div class="col-md-7 order-md-2">
          @endif
 
-             <h2 class="featurette-heading">{{ $immobile->titolo }} <span class="text-muted">  Vani:{{$immobile->vani}}  Mq:{{$immobile->mq}}  Prezzo:{{$immobile->prezzo}}</span></h2>
+             <h2 class="featurette-heading">{{ $immobile->operazione }}  /{{ $immobile->titolo }} <span class="text-muted">  Vani:{{$immobile->vani}}  Mq:{{$immobile->mq}}  Prezzo:{{$immobile->prezzo}}</span></h2>
          <p class="lead">
            {{ $immobile->descrizione }}
          </p>

@@ -9,7 +9,7 @@
     <table class="table table-light">
         <table class="table table-light">
             <thead class="thead-light">
-                <tr>
+                <tr class="home">
                     <th>Operazione</th>
                     <th>Tipo</th>
                     <th>Titolo</th>
@@ -22,7 +22,7 @@
             </thead>
             <tbody>
                 @foreach ($immobili as $immobile)
-                    <tr>
+                    <tr id="id_{{$immobile->id}}">
                         <td>{{ $immobile->operazione }}</td>
                         <td>{{ $immobile->tipologia }}</td>
                         <td>{{ $immobile->titolo }}</td>
@@ -38,7 +38,7 @@
                          </button>
                      </a>
 
-                     <a href="immobile/{{$immobile->id}}/add_foto" title="Aggiungi Foto">
+                     <a href="/listino/{{$immobile->id}}/add_foto" title="Aggiungi Foto">
                         <button class="btn-small btn-primary " type="button">
                             <i class="fas fa-photo-video"></i>
                         </button>
@@ -68,5 +68,26 @@
         </tbody>
     </table>
 </div>
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+
+  $('tbody').sortable({
+        items: "tr:not('.home')",
+        placeholder: "ui-state-hightlight",
+        update: function(){
+          var url = '/reorder_immobili';
+          var ids = $('tbody').sortable("serialize");
+          url+='?'+ids;
+          $.get(url,function(data){
+              console.log(data);
+          });
+          console.log(url+'?'+ids);
+          console.log(ids);
+      }
+  })
+    //Dropzone
+
+</script>
 
 @endsection

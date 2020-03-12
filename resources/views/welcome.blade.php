@@ -72,8 +72,12 @@
     <div class="col-lg-6">
         <img src="images/house-search.png" alt="" width="150" height="auto">
         <h2>Devi Comprare?</h2>
-      <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-      <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+      <p>
+         Avrai a disposizione il Listino immobiliare più fornito al mondo, un professionista ,
+         di parte che ti affianca e ti guida in tutto il percorso d'acquisto di casa tua.
+         Scopri i servizi dedicati a chi vuole acquistare.
+      </p>
+      <p><a class="btn btn-secondary" href="/ricerca" role="button">Servizi per l'acquirente</a></p>
     </div><!-- /.col-lg-4 -->
     <!-- /.col-lg-4 -->
   </div><!-- /.row -->
