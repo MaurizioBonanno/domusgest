@@ -252,11 +252,14 @@
               <!-- end carousel -------------------------->
                     <div class="col-12">
                                     <div class="jumbotron " style="padding-top: 5em">
-                                    <h1 class="display-4">{{$immobile->titolo }}</h1>
+                                    <h1 class="display-4">{{$immobile->operazione}}  / {{$immobile->titolo }}</h1>
                                     <p class="lead"> {{ $immobile->descrizione }} </p>
                                     <p class="lead">
+                                        <h2>
                                         {{ $immobile->tipologia }} , in {{ $immobile->operazione }}
-                                        Localita:  {{ $immobile->provincia }}  {{   $immobile->indirizzo  }}  </p>
+                                        Località:  {{ $immobile->provincia }}  {{   $immobile->indirizzo  }}
+                                        </h2>
+                                     </p>
                                     <hr class="my-4">
                                     <p><i class="fas fa-warehouse"></i><b>Metri</b>:{{ $immobile->mq }}</p>
                                     <p><i class="fas fa-restroom"></i><b>Vani</b>:{{ $immobile->vani }}</p>
