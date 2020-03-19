@@ -84,7 +84,9 @@ Route::get('/fissaappuntamento', function (Request $request) {
     $headers = 'From:'.$miamail."\r\n"."Reply-To: ".$miamail;
     mail($miamail,"Messaggio dal sito",$bodymsg,$headers);
 
-    return true;
+    $msg="email inviata correttamente";
+
+    return $msg;
 
 });
 
