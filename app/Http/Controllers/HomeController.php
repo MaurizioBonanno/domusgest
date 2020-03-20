@@ -219,7 +219,7 @@ class HomeController extends Controller
 
          }
 
-         return redirect('/immobile/'.$photo->id_immobile.'/add_foto');
+         return redirect('/listino/'.$photo->id_immobile.'/add_foto');
     }
 
     public function reordergallery(Request $request){
