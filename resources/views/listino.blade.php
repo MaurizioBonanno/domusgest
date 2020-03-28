@@ -18,7 +18,8 @@
 
              <h2 class="featurette-heading">{{ $immobile->operazione }}  /{{ $immobile->titolo }} <span class="text-muted">  Vani:{{$immobile->vani}}  Mq:{{$immobile->mq}}  Prezzo:{{$immobile->prezzo}}</span></h2>
          <p class="lead">
-           {{ $immobile->descrizione }}
+             <?php $sub_desc=substr($immobile->descrizione,0,200) ?>
+           {{ $sub_desc }}....
          </p>
          <p>
             <a href="https://wa.me/393205504321?text=Sarei%20interessato%20ad%20avere%20maggiori%20informazioni%20grazie%20rif:{{$immobile->id}}" target="_blank">
@@ -30,7 +31,7 @@
         </p>
        </div>
        <div class="col-md-5">
-        <img src="{{asset('storage/'.$immobile->photo)}}" class="d-block w-100" alt="...">
+       <img src="{{asset('storage/'.$immobile->photo)}}" class="d-block w-100" alt="{{$immobile->titolo}}">
 
         <?php
         $desc = str_replace(" ","-",$immobile->titolo);
