@@ -13,8 +13,9 @@
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Maurizio Bonanno Consulente Immobiliare</title>
+        <meta name="title" content="Maurizio Bonanno Remax agente immobiliare a Genova Centro">
+        <meta name="description" content="Maurizio Bonanno agente immobiliare in Centro Genova  property finder presso REMAX agenzia immobiliare Genova tel:3205504321/3883747474 vendere/acquistare casa">
+        <title>Maurizio Bonanno Remax agente immobiliare a Genova Centro</title>
 
         <!-- awesome -->
         <link href="css/awesome/css/all.css" rel="stylesheet">
@@ -74,6 +75,19 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            .title-carousel{
+               font-size: 2em;
+               font-weight: bolder;
+            }
+            .mini-title{
+                font-size: 1em;
+                font-weight: normal;
+            }
+            .small-title{
+                font-size: 1.5em;
+                font-weight: bold;
+            }
         </style>
 
 
@@ -86,9 +100,32 @@
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
+
+  <!-- Pixel --->
+  <!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2322252024747423');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2322252024747423&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Facebook Pixel Code -->
     </head>
     <body>
-
+        <script type="text/javascript">
+            var _iub = _iub || [];
+            _iub.csConfiguration = {"lang":"it","siteId":1863751,"whitelabel":false,"cookiePolicyId":33767357, "banner":{ "acceptButtonDisplay":true,"customizeButtonDisplay":true,"position":"float-top-center" }};
+            </script>
+            <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="/">
@@ -231,5 +268,6 @@
 
         </div>
         @include('layouts.footer')
+
     </body>
 </html>
