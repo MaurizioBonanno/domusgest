@@ -125,6 +125,9 @@ class HomeController extends Controller
         $filename = $file->store(env('ALBUM_THUMB_DIR'));
         $immobile->photo = $filename;
 
+        //realistico
+        $immobile->realistico = request()->input('realistico');
+
         $immobile->save();
 
         return redirect()->route('immobili');
@@ -155,6 +158,8 @@ class HomeController extends Controller
         $immobile->photo = $filename;
         }
 
+        //realistico
+        $immobile->realistico = request()->input('realistico');
 
         $immobile->save();
 
@@ -181,7 +186,7 @@ class HomeController extends Controller
     }
 
     public function immobili(){
-        $sql ="SELECT i.id,titolo,descrizione,photo,id_tipologia,id_operazione,sorter,prezzo,mq,
+        $sql ="SELECT i.id,titolo,descrizione,photo,id_tipologia,id_operazione,sorter,prezzo,realistico,mq,
         camere,bagni,vani,indirizzo,provincia,tipologia,operazione  from immobili as i INNER JOIN tipologie
          as t ON i.id_tipologia = t.id INNER JOIN operazioni as o ON i.id_operazione = o.id order by i.sorter asc";
 
@@ -191,7 +196,7 @@ class HomeController extends Controller
     }
 
     public function dettaglio_immobile($id){
-        $sql ="SELECT i.id,titolo,descrizione,photo,id_tipologia,id_operazione,sorter,prezzo,mq,
+        $sql ="SELECT i.id,titolo,descrizione,photo,id_tipologia,id_operazione,sorter,prezzo,realistico,mq,
         camere,bagni,vani,indirizzo,provincia,prezzo,tipologia,operazione,certificazione  from immobili as i INNER JOIN tipologie
          as t ON i.id_tipologia = t.id INNER JOIN operazioni as o ON i.id_operazione = o.id where i.id=".$id;
 

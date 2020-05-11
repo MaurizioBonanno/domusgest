@@ -38,9 +38,21 @@
         $slug=$immobile->operazione."-".$immobile->tipologia."-".$desc;
         ?>
         <br>
-        <p><a class="btn btn-small btn-primary" href="/immobile/{{$immobile->id}}/{{$slug}}" role="button">Dettagli</a></p>
-
-       </div>
+        <div><a class="btn btn-small btn-primary" href="/immobile/{{$immobile->id}}/{{$slug}}" role="button">Dettagli</a></div>
+<hr>
+        <div>
+        <?php
+           if($immobile->realistico != null){
+        ?>
+        Visita questo immobile con la realtà virtuale
+        <a class="trigger" href="{{ $immobile->realistico }}/?viewMode=embed" target="_blank">
+            <button class="logo-realistico">Visita con Realisti.co</button>
+            </a>
+            <script type="text/javascript" src="//www.realisti.co/widget/v1/rlstc_nt.js"></script>
+            <script type="text/javascript">window.onload=function(){rlstc_nt();};</script>
+        <?php } ?>
+        </div>
+    </div>
      </div>
 
       <?php $count++ ?>

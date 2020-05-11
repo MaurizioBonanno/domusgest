@@ -277,7 +277,20 @@
                                     <p><i class="fas fa-shower"></i><b>Bagni</b>:{{ $immobile->bagni }}</p>
                                     <p><h4>€ {{$immobile->prezzo}}</h4></p>
                                     <p>Certificazione energetica: {{ $immobile->certificazione }} </p>
-
+                                     <div>
+                                         <?php
+                                         if($immobile->realistico != null){
+                                         ?>
+                                         Visita questo immobile con la realtà virtuale <br>
+                                          <a class="trigger" href="{{ $immobile->realistico }}/?viewMode=embed" target="_blank">
+                                            <button class="logo-realistico">Visita con Realisti.co</button>
+                                            </a>
+                                            <script type="text/javascript" src="//www.realisti.co/widget/v1/rlstc_nt.js"></script>
+                                            <script type="text/javascript">window.onload=function(){rlstc_nt();};</script>
+                                         <?php
+                                         }
+                                         ?>
+                                     </div>
                                     <p>
                                         <a href="https://wa.me/393205504321?text=Sarei%20interessato%20ad%20avere%20maggiori%20informazioni%20grazie%20rif:{{$immobile->id}}" target="_blank">
                                             <div><font color="#00ff00"><b>chiedi informazioni tramite whatsapp</b></font>

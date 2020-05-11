@@ -64,6 +64,8 @@
             <label for="link">Prezzo</label>
             <input type="number" name="prezzo" value="{{$immobile->prezzo}}" id="prezzo"  class="form-control" required >
 
+            <label for="link">Visita virtuale</label>
+            <input type="text" name="realistico" id="realistico" value="{{ $immobile->realistico }}" class="form-control">
     </div>
     <input type="submit" class="btn-small btn-primary" value="Submit">
 

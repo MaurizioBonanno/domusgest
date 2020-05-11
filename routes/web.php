@@ -27,7 +27,7 @@ Route::get('/', function () {
 });
 
 Route::get('/immobile/{id}/{descrizione}',function($id){
-    $sql ="SELECT i.id,titolo,descrizione,photo,id_tipologia,id_operazione,sorter,prezzo,mq,
+    $sql ="SELECT i.id,titolo,descrizione,photo,id_tipologia,id_operazione,sorter,prezzo,realistico,mq,
     camere,bagni,vani,indirizzo,provincia,prezzo,tipologia,operazione,certificazione  from immobili as i INNER JOIN tipologie
      as t ON i.id_tipologia = t.id INNER JOIN operazioni as o ON i.id_operazione = o.id where i.id=".$id;
 
@@ -91,7 +91,7 @@ Route::get('/fissaappuntamento', function (Request $request) {
 });
 
 Route::get('/listino', function(){
-    $sql ="SELECT i.id,titolo,descrizione,photo,id_tipologia,id_operazione,sorter,prezzo,mq,
+    $sql ="SELECT i.id,titolo,descrizione,photo,id_tipologia,id_operazione,realistico,sorter,prezzo,mq,
     camere,bagni,vani,indirizzo,provincia,tipologia,operazione  from immobili as i INNER JOIN tipologie
      as t ON i.id_tipologia = t.id INNER JOIN operazioni as o ON i.id_operazione = o.id order by i.sorter asc";
 
